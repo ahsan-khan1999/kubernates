@@ -1,0 +1,11 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: firstpod
+spec:
+  containers:
+    - name: firstcontainer
+      image: ahsankhan0061/my-first-docker-app
+      ports: 
+        - containerPort: 80
+        

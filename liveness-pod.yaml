@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: liveness-pod
+spec:
+  containers:
+  - image: ahsankhan0061/com_image1
+    name: mynode-cont1
+    livenessProbe:
+      httpGet: 
+        path: /
+        port: 8080

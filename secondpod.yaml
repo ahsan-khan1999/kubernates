@@ -1,0 +1,87 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  creationTimestamp: "2020-01-14T14:47:07Z"
+  labels:
+    run: secondpod
+  name: secondpod
+  namespace: default
+  resourceVersion: "11746"
+  selfLink: /api/v1/namespaces/default/pods/secondpod
+  uid: afd96b2a-085d-47f6-b677-4bb58a5c8c12
+spec:
+  containers:
+  - image: ahsankhan0061/my-first-docker-app
+    imagePullPolicy: Always
+    name: secondpod
+    ports:
+    - containerPort: 80
+      protocol: TCP
+    resources: {}
+    terminationMessagePath: /dev/termination-log
+    terminationMessagePolicy: File
+    volumeMounts:
+    - mountPath: /var/run/secrets/kubernetes.io/serviceaccount
+      name: default-token-647ps
+      readOnly: true
+  dnsPolicy: ClusterFirst
+  enableServiceLinks: true
+  nodeName: minikube
+  priority: 0
+  restartPolicy: Never
+  schedulerName: default-scheduler
+  securityContext: {}
+  serviceAccount: default
+  serviceAccountName: default
+  terminationGracePeriodSeconds: 30
+  tolerations:
+  - effect: NoExecute
+    key: node.kubernetes.io/not-ready
+    operator: Exists
+    tolerationSeconds: 300
+  - effect: NoExecute
+    key: node.kubernetes.io/unreachable
+    operator: Exists
+    tolerationSeconds: 300
+  volumes:
+  - name: default-token-647ps
+    secret:
+      defaultMode: 420
+      secretName: default-token-647ps
+status:
+  conditions:
+  - lastProbeTime: null
+    lastTransitionTime: "2020-01-14T14:47:07Z"
+    status: "True"
+    type: Initialized
+  - lastProbeTime: null
+    lastTransitionTime: "2020-01-14T14:47:52Z"
+    status: "True"
+    type: Ready
+  - lastProbeTime: null
+    lastTransitionTime: "2020-01-14T14:47:52Z"
+    status: "True"
+    type: ContainersReady
+  - lastProbeTime: null
+    lastTransitionTime: "2020-01-14T14:47:07Z"
+    status: "True"
+    type: PodScheduled
+  containerStatuses:
+  - containerID: docker://0925444b109a17f10f1824db7c1aee4a0c87d526ff5b2f5d5217eb9e784c0529
+    image: ahsankhan0061/my-first-docker-app:latest
+    imageID: docker-pullable://ahsankhan0061/my-first-docker-app@sha256:e3cda04a9f8c76f3ea85d74464925b85b82e7425c5b0fd3494933eac78b3ad60
+    lastState: {}
+    name: secondpod
+    ready: true
+    restartCount: 0
+    started: true
+    state:
+      running:
+        startedAt: "2020-01-14T14:47:51Z"
+  hostIP: 192.168.99.100
+  phase: Running
+  podIP: 172.17.0.5
+  podIPs:
+  - ip: 172.17.0.5
+  qosClass: BestEffort
+  startTime: "2020-01-14T14:47:07Z"

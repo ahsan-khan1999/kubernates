@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind : Deployment
+metadata:
+  name: app-deplo
+  labels:
+    app: web-app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: web-app
+  template:
+    metadata:
+      labels:
+        app: web-app
+    spec:
+      containers:
+      - name: cont1
+        image: ahsankhan0061/com_image1
+        ports:
+        - containerPort: 8080
